@@ -159,176 +159,119 @@ export default function AppointmentPageContent() {
       {/* ═══════════════════════════════════════════════════
           SECTION 2 — RESERVATION FORM
       ═══════════════════════════════════════════════════ */}
-      <section style={{ padding: "64px 0 88px" }}>
-        <div style={{ maxWidth: 840, margin: "0 auto", padding: "0 48px" }}>
+      <section className="reservation-section" style={{ padding: "64px 0 88px" }}>
+        <div className="reservation-container" style={{ maxWidth: 840, margin: "0 auto", padding: "0 48px" }}>
           
           {/* TABS CONTAINER */}
           <div className="tabs-container" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
             {/* Step 1 Tab */}
             <div
+              className={`tab-item ${step === 1 ? 'active' : ''}`}
               onClick={() => setStep(1)}
               style={{
-                backgroundColor: step === 1 ? "#fff" : "#ece3db",
+                backgroundColor: step === 1 ? "#fdfcfa" : "#ece3db",
                 padding: "24px 32px",
-                borderTopLeftRadius: 20,
-                borderBottom: step === 1 ? "4px solid #5c6b1e" : "none",
-                opacity: step === 1 ? 1 : 0.6,
+                borderTopLeftRadius: 40,
+                borderBottom: step === 1 ? "4px solid #5c6b1e" : "1px solid #e8e0cc",
+                opacity: step === 1 ? 1 : 0.4,
                 cursor: "pointer",
-                transition: "all 0.2s ease"
+                transition: "all 0.3s ease"
               }}
             >
-              <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 01</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#1a1a0e", margin: 0 }}>Service Selection</p>
+              <p className="tab-step" style={{ fontSize: 11, fontWeight: 800, color: step === 1 ? "#5c6b1e" : "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 01</p>
+              <p className="tab-title" style={{ fontSize: 14, fontWeight: step === 1 ? 800 : 500, color: "#1a1a0e", margin: 0 }}>Service Selection</p>
             </div>
             {/* Step 2 Tab */}
             <div
+              className={`tab-item ${step === 2 ? 'active' : ''}`}
               onClick={() => step > 2 && setStep(2)}
               style={{
-                backgroundColor: step === 2 ? "#fff" : "#ece3db",
+                backgroundColor: step === 2 ? "#fdfcfa" : "#ece3db",
                 padding: "24px 32px",
-                borderBottom: step === 2 ? "4px solid #5c6b1e" : "none",
-                opacity: step === 2 ? 1 : 0.6,
+                borderBottom: step === 2 ? "4px solid #5c6b1e" : "1px solid #e8e0cc",
+                opacity: step === 2 ? 1 : 0.4,
                 cursor: step > 2 ? "pointer" : "default",
-                transition: "all 0.2s ease"
+                transition: "all 0.3s ease"
               }}
             >
-              <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 02</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#1a1a0e", margin: 0 }}>Schedule & Time</p>
+              <p className="tab-step" style={{ fontSize: 11, fontWeight: 800, color: step === 2 ? "#5c6b1e" : "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 02</p>
+              <p className="tab-title" style={{ fontSize: 14, fontWeight: step === 2 ? 800 : 500, color: "#1a1a0e", margin: 0 }}>Schedule & Time</p>
             </div>
             {/* Step 3 Tab */}
             <div
-              className="tab-step-3"
+              className={`tab-item tab-step-3 ${step === 3 ? 'active' : ''}`}
               style={{
-                backgroundColor: step === 3 ? "#fff" : "#ece3db",
+                backgroundColor: step === 3 ? "#fdfcfa" : "#ece3db",
                 padding: "24px 32px",
-                borderTopRightRadius: 20,
-                borderBottom: step === 3 ? "4px solid #5c6b1e" : "none",
-                opacity: step === 3 ? 1 : 0.6,
-                transition: "all 0.2s ease"
+                borderTopRightRadius: 40,
+                borderBottom: step === 3 ? "4px solid #5c6b1e" : "1px solid #e8e0cc",
+                opacity: step === 3 ? 1 : 0.4,
+                transition: "all 0.3s ease"
               }}
             >
-              <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 03</p>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#1a1a0e", margin: 0 }}>Personal Details</p>
+              <p className="tab-step" style={{ fontSize: 11, fontWeight: 800, color: step === 3 ? "#5c6b1e" : "#8a8a70", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>Step 03</p>
+              <p className="tab-title" style={{ fontSize: 14, fontWeight: step === 3 ? 800 : 500, color: "#1a1a0e", margin: 0 }}>Personal Details</p>
             </div>
           </div>
 
           {/* FORM BODY */}
           <div
             style={{
-              backgroundColor: "#fff",
-              padding: "48px 64px 56px",
-              borderBottomLeftRadius: 32,
-              borderBottomRightRadius: 32,
-              boxShadow: "0 12px 32px rgba(0,0,0,0.04)",
+              backgroundColor: "#fdfcfa",
+              padding: "56px 64px 64px",
+              borderBottomLeftRadius: 40,
+              borderBottomRightRadius: 40,
+              boxShadow: "0 24px 60px rgba(0,0,0,0.06)",
             }}
             className="form-container"
           >
             {step === 1 && (
-              <>
-                <div style={{ textAlign: "center", marginBottom: 40 }}>
-                  <h2 style={{ fontSize: 24, fontWeight: 800, color: "#1a1a0e", margin: "0 0 8px" }}>What brings you in today?</h2>
-                  <p style={{ fontSize: 14, color: "#6a6a50", margin: 0 }}>Choose from our curated range of signature treatments.</p>
+              <div className="step-animation animate-in">
+                <div className="form-title" style={{ textAlign: "center", marginBottom: 56 }}>
+                  <h2 style={{ fontSize: 28, fontWeight: 800, color: "#1a1a0e", margin: "0 0 12px", letterSpacing: "-0.5px" }}>What brings you in today?</h2>
+                  <p style={{ fontSize: 15, color: "#8a8a70", margin: 0, fontWeight: 500 }}>Choose from our curated range of signature treatments.</p>
                 </div>
 
                 {/* Selection Grid */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }} className="selection-grid">
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 56 }} className="selection-grid">
                   
-                  {/* Option 1 */}
-              <div
-                onClick={() => setSelectedService("General Wellness")}
-                style={{
-                  border: selectedService === "General Wellness" ? "1.5px solid #5c6b1e" : "1.5px solid transparent",
-                  backgroundColor: selectedService === "General Wellness" ? "#fcfaeb" : "#f8f5ed",
-                  borderRadius: 16,
-                  padding: "24px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                <div style={{ marginBottom: 12 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5c6b1e" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                    <path d="M9 16l2 2 4-4"/>
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 6px" }}>General Wellness</h3>
-                <p style={{ fontSize: 12, color: "#6a6a50", margin: 0 }}>Comprehensive exam & cleaning</p>
-              </div>
-
-              {/* Option 2 */}
-              <div
-                onClick={() => setSelectedService("Cosmetic Artistry")}
-                style={{
-                  border: selectedService === "Cosmetic Artistry" ? "1.5px solid #5c6b1e" : "1.5px solid transparent",
-                  backgroundColor: selectedService === "Cosmetic Artistry" ? "#fcfaeb" : "#f8f5ed",
-                  borderRadius: 16,
-                  padding: "24px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                <div style={{ marginBottom: 12 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 6px" }}>Cosmetic Artistry</h3>
-                <p style={{ fontSize: 12, color: "#6a6a50", margin: 0 }}>Whitening & Aesthetic design</p>
-              </div>
-
-              {/* Option 3 */}
-              <div
-                onClick={() => setSelectedService("Restorative Care")}
-                style={{
-                  border: selectedService === "Restorative Care" ? "1.5px solid #5c6b1e" : "1.5px solid transparent",
-                  backgroundColor: selectedService === "Restorative Care" ? "#fcfaeb" : "#f8f5ed",
-                  borderRadius: 16,
-                  padding: "24px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                <div style={{ marginBottom: 12 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2C6.48 2 2 6.48 2 12c0 5.51 4.49 10 9.99 10 5.52 0 10-4.49 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 6px" }}>Restorative Care</h3>
-                <p style={{ fontSize: 12, color: "#6a6a50", margin: 0 }}>Implants, Crowns & Bridges</p>
-              </div>
-
-              {/* Option 4 */}
-              <div
-                onClick={() => setSelectedService("Urgent Care")}
-                style={{
-                  border: selectedService === "Urgent Care" ? "1.5px solid #5c6b1e" : "1.5px solid transparent",
-                  backgroundColor: selectedService === "Urgent Care" ? "#fcfaeb" : "#f8f5ed",
-                  borderRadius: 16,
-                  padding: "24px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-              >
-                <div style={{ marginBottom: 12 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"/>
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 6px" }}>Urgent Care</h3>
-                <p style={{ fontSize: 12, color: "#6a6a50", margin: 0 }}>Emergency pain management</p>
-              </div>
+                  {[
+                    { id: "General Wellness", label: "General Wellness", sub: "Comprehensive exam & cleaning", 
+                      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg> 
+                    },
+                    { id: "Cosmetic Artistry", label: "Cosmetic Artistry", sub: "Whitening & Aesthetic design", 
+                      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 
+                    },
+                    { id: "Restorative Care", label: "Restorative Care", sub: "Implants, Crowns & Bridges", 
+                      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.51 4.49 10 9.99 10 5.52 0 10-4.49 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg> 
+                    },
+                    { id: "Urgent Care", label: "Urgent Care", sub: "Emergency pain management", 
+                      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> 
+                    }
+                  ].map((srv) => {
+                    const isAct = selectedService === srv.id;
+                    return (
+                      <div
+                        key={srv.id}
+                        className={`service-card ${isAct ? "active" : ""}`}
+                        onClick={() => setSelectedService(srv.id)}
+                      >
+                        <div className="icon-wrapper">
+                          {srv.icon}
+                        </div>
+                        <h3>{srv.label}</h3>
+                        <p>{srv.sub}</p>
+                      </div>
+                    )
+                  })}
 
                 </div>
-              </>
+              </div>
             )}
 
             {step === 2 && (
-              <>
-                <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <div className="step-animation animate-in">
+                <div className="form-title" style={{ textAlign: "center", marginBottom: 40 }}>
                   <h2 style={{ fontSize: 24, fontWeight: 800, color: "#1a1a0e", margin: "0 0 8px" }}>When would you like to visit?</h2>
                   <p style={{ fontSize: 14, color: "#6a6a50", margin: 0 }}>Select an available date and time for your appointment.</p>
                 </div>
@@ -337,15 +280,15 @@ export default function AppointmentPageContent() {
                   {/* Date Picker Dummy */}
                   <div>
                     <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 16px" }}>Select Date</h3>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+                    <div className="date-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
                        {["Mon, 12th", "Tue, 13th", "Wed, 14th", "Thu, 15th", "Fri, 16th", "Sat, 17th"].map((d) => (
                           <div 
                             key={d} 
                             onClick={() => setSelectedDate(d)} 
                             style={{ 
-                              border: selectedDate === d ? "1.5px solid #5c6b1e" : "1.5px solid #e8e0cc", 
-                              backgroundColor: selectedDate === d ? "#fcfaeb" : "#fbf9f4", 
-                              borderRadius: 12, padding: "16px 0", textAlign: "center", cursor: "pointer", transition: "all 0.2s ease" 
+                              border: selectedDate === d ? "2px solid #5c6b1e" : "2px solid transparent", 
+                              backgroundColor: selectedDate === d ? "#f4f7e6" : "#f4f0e6", 
+                              borderRadius: 16, padding: "16px 0", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease",
                             }}>
                             <span style={{ fontSize: 13, fontWeight: 700, color: selectedDate === d ? "#1a1a0e" : "#555540" }}>{d}</span>
                           </div>
@@ -355,15 +298,15 @@ export default function AppointmentPageContent() {
                   {/* Time Slots Dummy */}
                   <div>
                     <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a1a0e", margin: "0 0 16px" }}>Select Time</h3>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+                    <div className="time-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
                        {["09:00 AM", "10:30 AM", "01:00 PM", "02:30 PM", "04:00 PM"].map((t) => (
                           <div 
                             key={t} 
                             onClick={() => setSelectedTime(t)} 
                             style={{ 
-                              border: selectedTime === t ? "1.5px solid #5c6b1e" : "1.5px solid #e8e0cc", 
-                              backgroundColor: selectedTime === t ? "#fcfaeb" : "#fbf9f4", 
-                              borderRadius: 12, padding: "16px 0", textAlign: "center", cursor: "pointer", transition: "all 0.2s ease" 
+                              border: selectedTime === t ? "2px solid #5c6b1e" : "2px solid transparent", 
+                              backgroundColor: selectedTime === t ? "#f4f7e6" : "#f4f0e6", 
+                              borderRadius: 16, padding: "16px 0", textAlign: "center", cursor: "pointer", transition: "all 0.3s ease" 
                             }}>
                             <span style={{ fontSize: 13, fontWeight: 700, color: selectedTime === t ? "#1a1a0e" : "#555540" }}>{t}</span>
                           </div>
@@ -371,49 +314,52 @@ export default function AppointmentPageContent() {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
 
             {step === 3 && (
-              <>
-                <div style={{ textAlign: "center", marginBottom: 40 }}>
+              <div className="step-animation animate-in">
+                <div className="form-title" style={{ textAlign: "center", marginBottom: 40 }}>
                   <h2 style={{ fontSize: 24, fontWeight: 800, color: "#1a1a0e", margin: "0 0 8px" }}>Your Details</h2>
                   <p style={{ fontSize: 14, color: "#6a6a50", margin: 0 }}>Please provide your contact information to finalize the booking.</p>
                 </div>
                 
                 <div style={{ maxWidth: 480, margin: "0 auto 48px" }}>
-                  <div style={{ marginBottom: 16 }}>
+                  <div className="input-group" style={{ marginBottom: 16 }}>
                     <label style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "#8a8a70", marginBottom: 8 }}>Full Name</label>
                     <input 
                       type="text" 
+                      className="form-input"
                       value={userDetails.name} 
                       onChange={(e) => setUserDetails({...userDetails, name: e.target.value})} 
-                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif" }} 
+                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif", transition: "all 0.2s" }} 
                       placeholder="John Doe" 
                     />
                   </div>
-                  <div style={{ marginBottom: 16 }}>
+                  <div className="input-group" style={{ marginBottom: 16 }}>
                     <label style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "#8a8a70", marginBottom: 8 }}>Email Address</label>
                     <input 
                       type="email" 
+                      className="form-input"
                       value={userDetails.email} 
                       onChange={(e) => setUserDetails({...userDetails, email: e.target.value})} 
-                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif" }} 
+                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif", transition: "all 0.2s" }} 
                       placeholder="john@example.com" 
                     />
                   </div>
-                  <div style={{ marginBottom: 16 }}>
+                  <div className="input-group" style={{ marginBottom: 16 }}>
                     <label style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: "#8a8a70", marginBottom: 8 }}>Phone Number</label>
                     <input 
                       type="tel" 
+                      className="form-input"
                       value={userDetails.phone} 
                       onChange={(e) => setUserDetails({...userDetails, phone: e.target.value})} 
-                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif" }} 
+                      style={{ width: "100%", padding: "14px 16px", fontSize: 14, borderRadius: 12, border: "1px solid #e8e0cc", backgroundColor: "#fbf9f4", outline: "none", color: "#1a1a0e", fontFamily: "Inter, sans-serif", transition: "all 0.2s" }} 
                       placeholder="+1 (555) 000-0000" 
                     />
                   </div>
                 </div>
-              </>
+              </div>
             )}
 
             {/* Bottom Actions */}
@@ -464,28 +410,25 @@ export default function AppointmentPageContent() {
                   display: "flex",
                   alignItems: "center",
                   gap: 8,
-                  padding: "12px 28px",
+                  padding: "16px 36px",
                   backgroundColor: (
                     (step === 1 && !selectedService) ||
                     (step === 2 && (!selectedDate || !selectedTime)) ||
                     (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
-                  ) ? "#8a8a70" : "#5c6b1e",
-                  opacity: (
-                    (step === 1 && !selectedService) ||
-                    (step === 2 && (!selectedDate || !selectedTime)) ||
-                    (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
-                  ) ? 0.5 : 1,
+                  ) ? "#c2c2b6" : "#4a5a10",
+                  opacity: 1,
                   color: "#fff",
-                  fontSize: 13,
-                  fontWeight: 700,
+                  fontSize: 14,
+                  fontWeight: 800,
                   border: "none",
-                  borderRadius: 30,
+                  borderRadius: 40,
                   cursor: (
                     (step === 1 && !selectedService) ||
                     (step === 2 && (!selectedDate || !selectedTime)) ||
                     (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
                   ) ? "not-allowed" : "pointer",
-                  transition: "all 0.2s ease"
+                  transition: "all 0.3s ease",
+                  boxShadow: (step !== 1 && selectedService) ? "0 8px 24px rgba(74, 90, 16, 0.15)" : "none",
                 }}
               >
                 {step === 3 ? "Submit Appointment" : "Continue"}
@@ -661,24 +604,165 @@ export default function AppointmentPageContent() {
       </footer>
 
       <style>{`
+        .service-card {
+           border: 2px solid transparent;
+           background-color: #f4f0e6;
+           border-radius: 20px;
+           padding: 32px;
+           cursor: pointer;
+           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .service-card .icon-wrapper {
+           margin-bottom: 16px;
+           color: #8a8a70;
+           transition: color 0.3s ease;
+        }
+        .service-card h3 {
+           font-size: 16px;
+           font-weight: 800;
+           color: #1a1a0e;
+           margin: 0 0 6px;
+        }
+        .service-card p {
+           font-size: 13px;
+           color: #6a6a50;
+           margin: 0;
+           font-weight: 500;
+        }
+        .service-card:hover {
+           transform: scale(1.02);
+           box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+           background-color: #fdfcfa;
+        }
+        .service-card.active {
+           border: 2px solid #5c6b1e;
+           background-color: #f4f7e6;
+        }
+        .service-card.active .icon-wrapper {
+           color: #5c6b1e;
+        }
+        .action-btn:hover:not(:disabled) {
+           transform: translateY(-2px);
+           box-shadow: 0 12px 28px rgba(74, 90, 16, 0.25) !important;
+           background-color: #3d4a0d !important;
+        }
+        .form-input:focus {
+           border-color: #5c6b1e !important;
+           box-shadow: 0 0 0 3px rgba(92, 107, 30, 0.15) !important;
+        }
+
+        /* Step Fade Animation */
+        .step-animation {
+           animation: fadeSlideUp 0.4s ease forwards;
+        }
+        @keyframes fadeSlideUp {
+           from { opacity: 0; transform: translateY(10px); }
+           to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Fixes */
         @media (max-width: 900px) {
-          .appointment-hero-grid,
-          .footer-grid { grid-template-columns: 1fr !important; }
-          .selection-grid { grid-template-columns: 1fr !important; }
-          .trust-flex-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 40px !important; }
-          .form-container { padding: 32px 24px !important; }
+          /* Full Width Adjustments */
+          .reservation-section { padding: 40px 0 60px !important; background-color: #faf5ec; }
+          .reservation-container { padding: 0 16px !important; }
+          .form-container { padding: 32px 20px !important; border-bottom-left-radius: 20px !important; border-bottom-right-radius: 20px !important; }
           
-          .tabs-container { grid-template-columns: 1fr !important; }
-          .tab-step-3 { border-top-right-radius: 0 !important; }
+          /* Step Progress Bar Header */
+          .tabs-container { 
+            display: flex !important; 
+            flex-direction: row !important; 
+            align-items: center; 
+            justify-content: space-between; 
+            background-color: transparent !important;
+            padding: 0 !important;
+            margin-bottom: 24px;
+          }
+          .tabs-container .tab-item {
+            flex: 1;
+            text-align: center;
+            background: transparent !important;
+            border: none !important;
+            padding: 8px 4px !important;
+            opacity: 1 !important;
+            position: relative;
+          }
+          .tabs-container .tab-item::after {
+            content: "";
+            position: absolute;
+            right: -20px;
+            top: 14px;
+            width: 40px;
+            height: 1.5px;
+            background-color: #e8e0cc;
+            z-index: 0;
+            display: none; /* Can enable if wider, but space-between handles it cleanly on flex end */
+          }
+          .tabs-container .tab-step {
+            display: inline-block !important;
+            background-color: #ece3db;
+            color: #8a8a70 !important; 
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 0 !important;
+            font-size: 11px !important; 
+            transition: all 0.3s;
+          }
+          .tabs-container .tab-item.active .tab-step {
+            background-color: #5c6b1e !important;
+            color: #fff !important;
+            box-shadow: 0 4px 10px rgba(92,107,30,0.3);
+          }
+          .tabs-container .tab-title { display: none !important; } /* Hide text steps on mobile */
+
+          /* Title Fix */
+          .form-title { margin-bottom: 32px !important; }
+          .form-title h2 { font-size: 22px !important; margin-bottom: 8px !important; }
+          .form-title p { font-size: 13px !important; color: #a0a088 !important; }
+
+          /* Service Cards */
+          .selection-grid { grid-template-columns: 1fr !important; gap: 16px !important; margin-bottom: 32px !important; }
+          .service-card { padding: 20px 24px !important; display: flex; align-items: center; gap: 16px; border-radius: 16px !important; }
+          .service-card .icon-wrapper { margin-bottom: 0 !important; }
+          .service-card h3 { font-size: 15px !important; margin-bottom: 4px !important; }
+          .service-card p { font-size: 12px !important; }
+
+          /* Date & Time Step 2 grids */
+          .date-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+          .time-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+
+          /* Input Fields */
+          .form-input { padding: 16px !important; font-size: 15px !important; border-radius: 14px !important; }
+          .input-group { margin-bottom: 20px !important; }
+
+          /* Sticky Bottom Actions */
           .form-actions { 
-            flex-direction: column-reverse !important; 
-            align-items: stretch !important; 
-            gap: 24px !important; 
+            position: fixed !important; 
+            bottom: 0 !important; 
+            left: 0 !important; 
+            width: 100% !important; 
+            background: #fff !important; 
+            padding: 16px 24px 24px !important; 
+            border-top: 1px solid #f0f0f0; 
+            z-index: 100; 
+            flex-direction: row-reverse !important; 
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.05); 
+            gap: 16px !important;
           }
           .action-btn {
             width: 100% !important;
             justify-content: center !important;
+            padding: 16px !important;
+            border-radius: 40px !important;
+            transform: none !important;
           }
+          .action-btn:active:not(:disabled) {
+            transform: scale(0.98) !important;
+          }
+
+          /* General Layout Grid overrides */
+          .appointment-hero-grid,
+          .footer-grid { grid-template-columns: 1fr !important; }
+          .trust-flex-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 40px !important; }
         }
       `}</style>
     </main>
