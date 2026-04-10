@@ -490,62 +490,60 @@ Please confirm my appointment.`;
       <section style={{ padding: "48px 0 88px" }}>
         <div
           style={{
-            maxWidth: 1000,
+            maxWidth: 720,
             margin: "0 auto",
             padding: "0 48px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: 48,
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 24,
           }}
-          className="trust-flex-row"
+          className="trust-grid"
         >
           {/* Badge 1 */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="trust-badge" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 24px", backgroundColor: "#fdfcfa", border: "1px solid #e8e0cc", borderRadius: 16 }}>
             <div style={{ marginBottom: 16 }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 <path d="M9 12l2 2 4-4"/>
               </svg>
             </div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0 }}>HIPAA COMPLIANT</p>
+            <p style={{ fontSize: 11, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0, textAlign: "center" }}>HIPAA COMPLIANT</p>
           </div>
           
           {/* Badge 2 */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="trust-badge" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 24px", backgroundColor: "#fdfcfa", border: "1px solid #e8e0cc", borderRadius: 16 }}>
             <div style={{ marginBottom: 16 }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 <rect x="9" y="10" width="6" height="6" rx="1"/>
                 <path d="M10 10V8a2 2 0 0 1 4 0v2"/>
               </svg>
             </div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0 }}>256-BIT ENCRYPTION</p>
+            <p style={{ fontSize: 11, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0, textAlign: "center" }}>256-BIT ENCRYPTION</p>
           </div>
 
           {/* Badge 3 */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="trust-badge" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 24px", backgroundColor: "#fdfcfa", border: "1px solid #e8e0cc", borderRadius: 16 }}>
             <div style={{ marginBottom: 16 }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="8" r="7"/>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
                 <path d="M12 8L12 8"/>
               </svg>
             </div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0 }}>ADA MEMBER</p>
+            <p style={{ fontSize: 11, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0, textAlign: "center" }}>ADA MEMBER</p>
           </div>
 
           {/* Badge 4 */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div className="trust-badge" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 24px", backgroundColor: "#fdfcfa", border: "1px solid #e8e0cc", borderRadius: 16 }}>
             <div style={{ marginBottom: 16 }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a8a70" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 <line x1="12" y1="8" x2="12" y2="16"/>
                 <line x1="8" y1="12" x2="16" y2="12"/>
               </svg>
             </div>
-            <p style={{ fontSize: 10, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0 }}>SAFE & SECURE</p>
+            <p style={{ fontSize: 11, fontWeight: 700, color: "#8a8a70", textTransform: "uppercase", letterSpacing: "1.5px", margin: 0, textAlign: "center" }}>SAFE & SECURE</p>
           </div>
         </div>
       </section>
@@ -709,6 +707,16 @@ Please confirm my appointment.`;
            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Trust Badges Hover Effect */
+        .trust-badge {
+          transition: all 0.3s ease;
+        }
+        .trust-badge:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.04);
+          border-color: #d8cbb8 !important;
+        }
+
         /* Responsive Fixes */
         @media (max-width: 900px) {
           /* Full Width Adjustments */
@@ -813,7 +821,7 @@ Please confirm my appointment.`;
           /* General Layout Grid overrides */
           .appointment-hero-grid,
           .footer-grid { grid-template-columns: 1fr !important; }
-          .trust-flex-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 40px !important; }
+          .trust-grid { gap: 16px !important; padding: 0 24px !important; }
         }
       `}</style>
     </main>
