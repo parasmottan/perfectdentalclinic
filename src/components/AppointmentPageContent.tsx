@@ -14,19 +14,39 @@ export default function AppointmentPageContent() {
     email: "",
     phone: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const isFormFilled = Boolean(userDetails.name && /^\S+@\S+\.\S+$/.test(userDetails.email) && userDetails.phone);
 
   const handleNext = () => {
     if (step === 1 && selectedService) setStep(2);
     else if (step === 2 && selectedDate && selectedTime) setStep(3);
-    else if (step === 3 && userDetails.name && /^\S+@\S+\.\S+$/.test(userDetails.email) && userDetails.phone) {
-      console.log("Appointment Form Submitted:", {
-        service: selectedService,
-        date: selectedDate,
-        time: selectedTime,
-        ...userDetails
-      });
-      alert("Appointment submitted successfully! Check console for details.");
-      // Optional: reset or go to success state here.
+    else if (step === 3) {
+      if (!isFormFilled) {
+        alert("Please ensure all personal details are filled out correctly.");
+        return;
+      }
+      
+      setIsSubmitting(true);
+      
+      const message = `Hello, I would like to book an appointment.
+
+Name: ${userDetails.name}
+Phone: ${userDetails.phone}
+Email: ${userDetails.email}
+
+Service: ${selectedService}
+Date: ${selectedDate}
+Time: ${selectedTime}
+
+Please confirm my appointment.`;
+
+      const url = `https://wa.me/917495096534?text=${encodeURIComponent(message)}`;
+      
+      setTimeout(() => {
+        window.open(url, "_blank");
+        setIsSubmitting(false);
+      }, 800);
     }
   };
 
@@ -359,12 +379,32 @@ export default function AppointmentPageContent() {
                     />
                   </div>
                 </div>
+                
+                {isFormFilled && (
+                  <div className="step-animation" style={{ 
+                    display: "flex", 
+                    alignItems: "center", 
+                    gap: 12, 
+                    padding: "14px 16px", 
+                    backgroundColor: "#f4f7e6", 
+                    borderRadius: 12, 
+                    marginTop: 12, 
+                    marginBottom: 16 
+                  }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7c25" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                    <p style={{ fontSize: 13, color: "#6a6a50", margin: 0, fontWeight: 500, lineHeight: 1.4 }}>
+                      You will be redirected to WhatsApp to confirm your booking.
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
             {/* Bottom Actions */}
             <div className="form-actions" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div className="form-actions-left" style={{ display: "flex", alignItems: "center", gap: 16 }}>
                 {step > 1 && (
                   <button
                     onClick={handleBack}
@@ -404,7 +444,7 @@ export default function AppointmentPageContent() {
                 disabled={
                   (step === 1 && !selectedService) ||
                   (step === 2 && (!selectedDate || !selectedTime)) ||
-                  (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
+                  (step === 3 && (!isFormFilled || isSubmitting))
                 }
                 style={{
                   display: "flex",
@@ -414,7 +454,7 @@ export default function AppointmentPageContent() {
                   backgroundColor: (
                     (step === 1 && !selectedService) ||
                     (step === 2 && (!selectedDate || !selectedTime)) ||
-                    (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
+                    (step === 3 && (!isFormFilled || isSubmitting))
                   ) ? "#c2c2b6" : "#4a5a10",
                   opacity: 1,
                   color: "#fff",
@@ -425,13 +465,13 @@ export default function AppointmentPageContent() {
                   cursor: (
                     (step === 1 && !selectedService) ||
                     (step === 2 && (!selectedDate || !selectedTime)) ||
-                    (step === 3 && (!userDetails.name || !/^\S+@\S+\.\S+$/.test(userDetails.email) || !userDetails.phone))
+                    (step === 3 && (!isFormFilled || isSubmitting))
                   ) ? "not-allowed" : "pointer",
                   transition: "all 0.3s ease",
                   boxShadow: (step !== 1 && selectedService) ? "0 8px 24px rgba(74, 90, 16, 0.15)" : "none",
                 }}
               >
-                {step === 3 ? "Submit Appointment" : "Continue"}
+                {step === 3 ? (isSubmitting ? "Generating Link..." : "Submit Appointment") : "Continue"}
                 {step !== 3 && (
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -660,6 +700,15 @@ export default function AppointmentPageContent() {
            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Button Ready Fade-in Animation */
+        .action-btn:not(:disabled) {
+           animation: buttonReady 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+        @keyframes buttonReady {
+           from { opacity: 0; transform: translateY(4px); }
+           to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Responsive Fixes */
         @media (max-width: 900px) {
           /* Full Width Adjustments */
@@ -734,19 +783,21 @@ export default function AppointmentPageContent() {
           .form-input { padding: 16px !important; font-size: 15px !important; border-radius: 14px !important; }
           .input-group { margin-bottom: 20px !important; }
 
-          /* Sticky Bottom Actions */
+          /* Inside Form Layout Actions */
           .form-actions { 
-            position: fixed !important; 
-            bottom: 0 !important; 
-            left: 0 !important; 
-            width: 100% !important; 
-            background: #fff !important; 
-            padding: 16px 24px 24px !important; 
-            border-top: 1px solid #f0f0f0; 
-            z-index: 100; 
-            flex-direction: row-reverse !important; 
-            box-shadow: 0 -10px 20px rgba(0,0,0,0.05); 
-            gap: 16px !important;
+            position: relative !important; 
+            flex-direction: column-reverse !important; 
+            margin-top: 24px !important;
+            padding: 8px 0 0 !important; 
+            border-top: none !important; 
+            background: transparent !important; 
+            z-index: 10; 
+            box-shadow: none !important; 
+            gap: 12px !important;
+          }
+          .form-actions-left {
+            justify-content: center !important;
+            width: 100% !important;
           }
           .action-btn {
             width: 100% !important;
