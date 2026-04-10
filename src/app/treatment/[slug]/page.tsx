@@ -19,9 +19,9 @@ const treatmentsData: Record<string, any> = {
       "Fresh and clean smile"
     ]
   },
-  "braces": {
-    title: "Orthodontics",
-    headline: "Straighten Your Smile with Modern Braces",
+    "metal-braces": {
+    title: "Metal Braces",
+    headline: "Straighten your smile with modern orthodontic care",
     tagline: "Achieve the straight, beautiful smile you've always wanted with durable, proven orthodontic care.",
     description: "Correcting a misaligned bite or deeply crowded teeth is one of the most rewarding transformations we do at the clinic. Modern orthodontic treatment with braces isn't just about achieving an aesthetically perfect smile—although that's certainly a wonderful outcome. It's about establishing proper alignment to ensure your teeth wear evenly, improving both your bite function and your overall oral longevity.\n\nWe utilize low-profile, high-grade brackets and advanced archwires that apply gentle, consistent pressure. The process is constantly monitored by our expert team, ensuring every movement is intentional. Once the braces come off, the long-lasting structural results speak for themselves.",
     beforeImage: "/images/1afb.jpeg",
@@ -32,26 +32,26 @@ const treatmentsData: Record<string, any> = {
       "Long-lasting results"
     ]
   },
-  "dental-implants": {
-    title: "Dental Implants",
-    headline: "Restore Missing Teeth with Dental Implants",
-    tagline: "A permanent, functional solution that looks and feels exactly like your natural teeth.",
-    description: "Losing a tooth can deeply affect how you chew, speak, and confidently smile. Dental implants are widely considered the gold standard for tooth replacement because they don't just fill a visual gap—they actually integrate directly with your jawbone. I perform implant procedures to give my patients a permanent, highly functional restoration that looks and feels exactly like a natural tooth.\n\nThe titanium post acts as an artificial root, providing incredible stability and preventing the bone loss that typically follows tooth extraction. Once we place the custom-crafted crown on top, the restored tooth blends seamlessly with your existing smile, offering uncompromising durability and aesthetic harmony.",
-    beforeImage: "/images/5afb.jpeg",
-    afterImage: "/images/3afb.jpeg",
-    benefits: [
-      "Replaces missing teeth",
-      "Restores natural appearance",
-      "Durable and long-lasting"
-    ]
-  },
-  "smile-makeover": {
-    title: "Smile Makeover",
-    headline: "Complete Smile Makeover for a Confident You",
-    tagline: "A completely personalized treatment plan crafted to restore beauty, balance, and function to your smile.",
-    description: "A Full Smile Makeover is the ultimate expression of personalized aesthetic dentistry. We often see patients who want to address multiple concerns at once—whether that involves stubborn yellowing, minor misalignments, or uneven chipping. By combining targeted treatments like professional laser cleaning and advanced aligners, we completely revitalize the architecture and brightness of your teeth.\n\nEvery smile is unique, which is why we sit down with you to design a personalized treatment plan from the ground up. By blending our deep clinical expertise with a focus on harmony and balance, we deliver a flawless result that profoundly improves your confidence and elevates your natural beauty.",
+  "clear-aligners": {
+    title: "Clear Aligners",
+    headline: "Virtually invisible alignment for a perfect smile",
+    tagline: "Discreet and comfortable aligners tailored to your specific dental structure.",
+    description: "For patients looking to straighten their teeth seamlessly, clear aligners offer a subtle alternative to traditional metal braces. Using advanced 3D imaging, we map out a fully customized set of aligners that gently shift your teeth into proper placement over time.\n\nBecause they are completely removable, clear aligners allow you to maintain your usual dietary habits and oral hygiene routine. It’s an ideal solution for adults and teens who want professional orthodontic results without the aesthetic compromise.",
     beforeImage: "/images/7afb.jpg",
     afterImage: "/images/8afb.jpg",
+    benefits: [
+      "Virtually invisible treatment",
+      "Removable for easy cleaning",
+      "Highly predictable results"
+    ]
+  },
+  "full-smile-makeover": {
+    title: "Full Smile Makeover",
+    headline: "Complete aesthetic transformation for a confident you",
+    tagline: "A completely personalized treatment plan crafted to restore beauty, balance, and function to your smile.",
+    description: "A Full Smile Makeover is the ultimate expression of personalized aesthetic dentistry. We often see patients who want to address multiple concerns at once—whether that involves stubborn yellowing, minor misalignments, or uneven chipping. By combining targeted treatments like professional laser cleaning and advanced aligners, we completely revitalize the architecture and brightness of your teeth.\n\nEvery smile is unique, which is why we sit down with you to design a personalized treatment plan from the ground up. By blending our deep clinical expertise with a focus on harmony and balance, we deliver a flawless result that profoundly improves your confidence and elevates your natural beauty.",
+    beforeImage: "/images/5afb.jpeg",
+    afterImage: "/images/3afb.jpeg",
     benefits: [
       "Enhances smile aesthetics",
       "Improves confidence",
@@ -59,6 +59,15 @@ const treatmentsData: Record<string, any> = {
     ]
   }
 };
+
+export async function generateStaticParams() {
+  return [
+    { slug: "metal-braces" },
+    { slug: "clear-aligners" },
+    { slug: "laser-cleaning" },
+    { slug: "full-smile-makeover" }
+  ];
+}
 
 export default async function TreatmentPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
