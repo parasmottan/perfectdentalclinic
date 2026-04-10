@@ -94,6 +94,7 @@ export default function Navbar() {
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
           <a
             href="#contact"
+            className="hidden-mobile-cta"
             style={{
               fontSize: 14,
               fontWeight: 700,
@@ -135,24 +136,62 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {open && (
-        <div style={{ background: "#faf5ec", padding: "12px 48px 20px", borderTop: "1px solid #e8e0d0" }}>
-          {navLinks.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
+        <div className="mobile-menu" style={{ background: "#faf5ec", padding: "20px 48px 32px", borderTop: "1px solid #e8e0d0", borderBottom: "1px solid #e8e0d0", boxShadow: "0 20px 40px rgba(0,0,0,0.05)" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {navLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                style={{ display: "block", padding: "14px 0", fontSize: 15, fontWeight: 600, color: "#1a1a0e", textDecoration: "none", letterSpacing: "1px", borderBottom: "1px solid rgba(0,0,0,0.04)" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          
+          {/* Prominent CTA */}
+          <div style={{ marginTop: 28 }}>
+            <Link 
+              href="/appointment"
               onClick={() => setOpen(false)}
-              style={{ display: "block", padding: "10px 0", fontSize: 13, color: "#444", textDecoration: "none", letterSpacing: "1px" }}
+              style={{
+                display: "block",
+                width: "100%",
+                textAlign: "center",
+                backgroundColor: "#4a5a10",
+                color: "#fff",
+                padding: "16px 24px",
+                borderRadius: 40,
+                fontSize: 15,
+                fontWeight: 700,
+                textDecoration: "none",
+                boxShadow: "0 8px 20px rgba(74, 90, 16, 0.2)",
+                transition: "all 0.3s ease",
+              }}
+              className="mobile-cta-btn"
             >
-              {item.label}
+              Book Appointment
             </Link>
-          ))}
+          </div>
         </div>
       )}
 
       <style>{`
-        @media (max-width: 768px) {
+        .mobile-menu {
+          animation: slideDown 0.3s ease-in-out forwards;
+        }
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .mobile-cta-btn:active {
+          transform: scale(0.98);
+        }
+        @media (max-width: 1024px) {
           .nav-container { padding: 0 24px !important; }
           .hidden-mobile { display: none !important; }
+          .hidden-mobile-cta { display: none !important; }
           .show-mobile { display: block !important; }
         }
       `}</style>
