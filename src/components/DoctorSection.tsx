@@ -52,9 +52,10 @@ export default function DoctorSection() {
             }}
           >
             <Image
-              src="/images/perfectdr.png"
+              src="/images/perfectdr.webp"
               alt="Dr. Narayan Raut"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover", objectPosition: "top center" }}
               priority
             />

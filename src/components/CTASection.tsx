@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -131,8 +132,8 @@ export default function CTASection() {
               </svg>
               Call Now
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/appointment"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -156,7 +157,7 @@ export default function CTASection() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <p

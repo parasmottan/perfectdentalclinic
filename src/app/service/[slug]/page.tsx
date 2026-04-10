@@ -11,8 +11,8 @@ const servicesData: Record<string, any> = {
     headline: "Professional Teeth Whitening",
     tagline: "Restore your natural radiance in a single visit with our advanced brightening treatments.",
     description: "Over time, teeth naturally absorb stains from coffee, tea, wine, and certain foods, leading to a dull or yellowed appearance. Our professional teeth whitening service uses advanced, enamel-safe bleaching agents combined with specialized light accelerators to gently break down these deep structural stains.\n\nUnlike over-the-counter kits that often cause unbearable sensitivity and deliver patchy results, our clinical approach is carefully monitored to protect your gums while ensuring an incredibly bright, even, and natural-looking smile.",
-    beforeImage: "/images/6afb.jpeg",
-    afterImage: "/images/2afb.jpeg",
+    beforeImage: "/images/6afb.webp",
+    afterImage: "/images/2afb.webp",
     benefits: [
       "Safe & painless",
       "Immediate, visible results",
@@ -29,8 +29,8 @@ const servicesData: Record<string, any> = {
     headline: "Expert Orthodontic Care",
     tagline: "Traditional and ceramic solutions to perfectly align your teeth with long-lasting structural integrity.",
     description: "Correcting a misaligned bite or crowded teeth is one of the most rewarding procedures we offer. Modern orthodontic treatment with braces isn't just about achieving an aesthetically perfect smile—it's about establishing proper alignment to ensure your teeth wear evenly, improving both your bite function and overall oral longevity.\n\nWe utilize low-profile, high-grade brackets and advanced archwires that apply gentle, consistent pressure. The process is constantly monitored by our expert team, ensuring every movement is intentional and highly effective.",
-    beforeImage: "/images/1afb.jpeg",
-    afterImage: "/images/4afb.jpeg",
+    beforeImage: "/images/1afb.webp",
+    afterImage: "/images/4afb.webp",
     benefits: [
       "Corrects severe misalignments",
       "Improves jaw function and bite",
@@ -47,8 +47,8 @@ const servicesData: Record<string, any> = {
     headline: "Discreet Clear Aligners",
     tagline: "Clear, removable aligners that discreetly transform your smile without the look of metal braces.",
     description: "For patients who want to straighten their teeth without the visual impact of traditional metal braces, Invisalign is the premier choice. These virtually invisible, custom-molded aligners gently and gradually shift your teeth into their proper positions. Because they are completely removable, you can easily maintain your normal eating and brushing routines throughout the treatment.\n\nWe use advanced 3D imaging technology to map out your entire treatment plan from day one. You'll switch to a new set of custom aligners every few weeks, meaning fewer clinic visits and a highly comfortable, predictable path to a flawless smile.",
-    beforeImage: "/images/7afb.jpg",
-    afterImage: "/images/8afb.jpg",
+    beforeImage: "/images/7afb.webp",
+    afterImage: "/images/8afb.webp",
     benefits: [
       "Virtually invisible treatment",
       "Removable for easy eating & cleaning",
@@ -83,8 +83,8 @@ const servicesData: Record<string, any> = {
     headline: "Permanent Dental Implants",
     tagline: "High-durability titanium implants that look, feel, and function exactly like your original teeth.",
     description: "Losing a tooth can deeply affect how you chew, speak, and confidently smile. Dental implants are the absolute gold standard for tooth replacement because they don't just fill a visual gap—they integrate directly with your jawbone. This prevents the bone degradation that naturally occurs when a tooth root is missing.\n\nThe titanium post acts as a sturdy artificial root. Once fully healed, we place a custom-crafted porcelain crown on top that blends seamlessly with your existing smile, offering uncompromising durability and stunning aesthetic harmony.",
-    beforeImage: "/images/5afb.jpeg",
-    afterImage: "/images/3afb.jpeg",
+    beforeImage: "/images/5afb.webp",
+    afterImage: "/images/3afb.webp",
     benefits: [
       "Permanent, non-removable solution",
       "Prevents natural jawbone loss",
@@ -101,8 +101,8 @@ const servicesData: Record<string, any> = {
     headline: "Advanced Periodontal Cleaning",
     tagline: "Advanced prophylaxis and periodontal maintenance to ensure your oral hygiene remains at its peak.",
     description: "Also known as scaling and root planing, a deep cleaning procedure goes far beyond a routine polish. When plaque and tartar aggressively build up beneath the gum line, it triggers inflammation and early-stage gum disease (gingivitis). If left untreated, this can progress to severe periodontitis.\n\nOur specialized deep cleaning carefully removes hardened calculus from the deep periodontal pockets surrounding your teeth. We then actively smooth the tooth roots, allowing your gums to neatly reattach and heal. This is a critical, proactive measure to safeguard the long-term biological health of your entire mouth.",
-    beforeImage: "/images/6afb.jpeg",
-    afterImage: "/images/2afb.jpeg",
+    beforeImage: "/images/6afb.webp",
+    afterImage: "/images/2afb.webp",
     benefits: [
       "Reverses early gum disease",
       "Eliminates bad breath causing bacteria",
@@ -213,6 +213,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     src={data.beforeImage}
                     alt={`${data.title} Before`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ objectFit: "cover" }}
                   />
                   <div
@@ -250,6 +251,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     src={data.afterImage}
                     alt={`${data.title} After`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ objectFit: "cover" }}
                   />
                   <div

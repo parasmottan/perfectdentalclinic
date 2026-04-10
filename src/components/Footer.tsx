@@ -1,8 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState("");
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
+  }, []);
+
   const quickLinks = ["Home", "Services", "About Us", "Treatments", "Reviews", "Contact"];
   const services = ["Teeth Whitening", "Braces & Ortho", "Dental Implants", "Root Canal", "Deep Cleaning", "Smile Makeover"];
 
@@ -215,7 +221,7 @@ export default function Footer() {
           className="footer-bottom"
         >
           <p style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", margin: 0 }}>
-            © {new Date().getFullYear()} Perfect Dental Clinic. All rights reserved.
+            © {currentYear || "2024"} Perfect Dental Clinic. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 20 }}>
             {["Privacy Policy", "Terms of Service", "Sitemap"].map((t) => (

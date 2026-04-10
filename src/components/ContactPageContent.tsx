@@ -106,9 +106,10 @@ export default function ContactPageContent() {
               }}
             >
               <Image
-                src="/images/perfecttiming.jpg"
+                src="/images/perfecttiming.webp"
                 alt="Dental clinic technology"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover", objectPosition: "center" }}
                 priority
               />
@@ -319,6 +320,7 @@ export default function ContactPageContent() {
               {/* Submit */}
               <button
                 type="submit"
+                aria-label="Dispatch Inquiry"
                 style={{
                   width: "100%",
                   padding: "15px 0",

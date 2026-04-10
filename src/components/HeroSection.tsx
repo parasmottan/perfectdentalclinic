@@ -174,9 +174,10 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/images/perfecttiming.jpg"
+              src="/images/perfecttiming.webp"
               alt="Dental close-up"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
               priority
             />
@@ -239,9 +240,10 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/images/perfectout.png"
+              src="/images/perfectout.webp"
               alt="Perfect Dental Clinic"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
             />
           </div>

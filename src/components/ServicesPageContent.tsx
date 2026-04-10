@@ -173,9 +173,10 @@ export default function ServicesPageContent() {
             {/* Main photo — rounded rectangle */}
             <div style={{ borderRadius: 20, overflow: "hidden", width: "100%", aspectRatio: "4/3", position: "relative" }}>
               <Image
-                src="/images/perfectteeth.jpg"
+                src="/images/perfectteeth.webp"
                 alt="Modern dentistry"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover" }}
                 priority
               />
@@ -492,9 +493,10 @@ export default function ServicesPageContent() {
               }}
             >
               <Image
-                src="/images/hero-dental.jpg"
+                src="/images/hero-dental.webp"
                 alt="Advanced dental equipment"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover" }}
               />
             </div>

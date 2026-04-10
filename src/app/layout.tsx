@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Perfect Dental Clinic | Your Smile, Perfected",
   description:
     "Expert dental care with Dr. Narayan Raut. Specializing in teeth whitening, braces, dental implants, deep cleaning, and more.",
+  icons: {
+    icon: "/images/perfectlogo.webp",
+  },
 };
 
 export default function RootLayout({

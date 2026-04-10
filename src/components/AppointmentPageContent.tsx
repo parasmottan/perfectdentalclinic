@@ -139,9 +139,10 @@ Please confirm my appointment.`;
               }}
             >
               <Image
-                src="/images/perfectchair.jpg"
+                src="/images/perfectchair.webp"
                 alt="Clinic interior"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover", objectPosition: "center" }}
                 priority
               />
@@ -408,6 +409,7 @@ Please confirm my appointment.`;
                 {step > 1 && (
                   <button
                     onClick={handleBack}
+                    aria-label="Previous step"
                     style={{
                       background: "none",
                       border: "none",
@@ -441,6 +443,7 @@ Please confirm my appointment.`;
               <button
                 className="action-btn"
                 onClick={handleNext}
+                aria-label={step === 3 ? "Submit appointment" : "Next step"}
                 disabled={
                   (step === 1 && !selectedService) ||
                   (step === 2 && (!selectedDate || !selectedTime)) ||

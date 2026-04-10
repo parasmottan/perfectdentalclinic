@@ -11,8 +11,8 @@ const treatmentsData: Record<string, any> = {
     headline: "Advanced Laser Cleaning for Healthier Teeth",
     tagline: "Experience a deeper, gentler clean that protects your smile and promotes rapid healing.",
     description: "Plaque and tartar buildup can lead to serious gum inflammation and decay if left untreated. Our advanced laser cleaning precisely targets and removes even the most stubborn calculus from your teeth and below the gumline. I always emphasize to my patients that this isn't your traditional, uncomfortable scaling session. It's a highly sophisticated, virtually painless procedure that prioritizes your comfort while actively sterilizing the affected areas.\n\nBecause the laser is so precise, it simultaneously stimulates your gum tissue, promoting rapid healing. You'll leave the clinic with an incredibly fresh, thoroughly clean smile and significantly healthier gums, ready to tackle the day with confidence.",
-    beforeImage: "/images/6afb.jpeg",
-    afterImage: "/images/2afb.jpeg",
+    beforeImage: "/images/6afb.webp",
+    afterImage: "/images/2afb.webp",
     benefits: [
       "Removes stubborn plaque & tartar",
       "Improves gum health",
@@ -24,8 +24,8 @@ const treatmentsData: Record<string, any> = {
     headline: "Straighten your smile with modern orthodontic care",
     tagline: "Achieve the straight, beautiful smile you've always wanted with durable, proven orthodontic care.",
     description: "Correcting a misaligned bite or deeply crowded teeth is one of the most rewarding transformations we do at the clinic. Modern orthodontic treatment with braces isn't just about achieving an aesthetically perfect smile—although that's certainly a wonderful outcome. It's about establishing proper alignment to ensure your teeth wear evenly, improving both your bite function and your overall oral longevity.\n\nWe utilize low-profile, high-grade brackets and advanced archwires that apply gentle, consistent pressure. The process is constantly monitored by our expert team, ensuring every movement is intentional. Once the braces come off, the long-lasting structural results speak for themselves.",
-    beforeImage: "/images/1afb.jpeg",
-    afterImage: "/images/4afb.jpeg",
+    beforeImage: "/images/1afb.webp",
+    afterImage: "/images/4afb.webp",
     benefits: [
       "Corrects misaligned teeth",
       "Improves bite and smile",
@@ -37,8 +37,8 @@ const treatmentsData: Record<string, any> = {
     headline: "Virtually invisible alignment for a perfect smile",
     tagline: "Discreet and comfortable aligners tailored to your specific dental structure.",
     description: "For patients looking to straighten their teeth seamlessly, clear aligners offer a subtle alternative to traditional metal braces. Using advanced 3D imaging, we map out a fully customized set of aligners that gently shift your teeth into proper placement over time.\n\nBecause they are completely removable, clear aligners allow you to maintain your usual dietary habits and oral hygiene routine. It’s an ideal solution for adults and teens who want professional orthodontic results without the aesthetic compromise.",
-    beforeImage: "/images/7afb.jpg",
-    afterImage: "/images/8afb.jpg",
+    beforeImage: "/images/7afb.webp",
+    afterImage: "/images/8afb.webp",
     benefits: [
       "Virtually invisible treatment",
       "Removable for easy cleaning",
@@ -50,8 +50,8 @@ const treatmentsData: Record<string, any> = {
     headline: "Complete aesthetic transformation for a confident you",
     tagline: "A completely personalized treatment plan crafted to restore beauty, balance, and function to your smile.",
     description: "A Full Smile Makeover is the ultimate expression of personalized aesthetic dentistry. We often see patients who want to address multiple concerns at once—whether that involves stubborn yellowing, minor misalignments, or uneven chipping. By combining targeted treatments like professional laser cleaning and advanced aligners, we completely revitalize the architecture and brightness of your teeth.\n\nEvery smile is unique, which is why we sit down with you to design a personalized treatment plan from the ground up. By blending our deep clinical expertise with a focus on harmony and balance, we deliver a flawless result that profoundly improves your confidence and elevates your natural beauty.",
-    beforeImage: "/images/5afb.jpeg",
-    afterImage: "/images/3afb.jpeg",
+    beforeImage: "/images/5afb.webp",
+    afterImage: "/images/3afb.webp",
     benefits: [
       "Enhances smile aesthetics",
       "Improves confidence",
@@ -165,6 +165,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
                   src={data.beforeImage}
                   alt={`${data.title} Before`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: "cover" }}
                 />
                 <div
@@ -202,6 +203,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
                   src={data.afterImage}
                   alt={`${data.title} After`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   style={{ objectFit: "cover" }}
                 />
                 <div
